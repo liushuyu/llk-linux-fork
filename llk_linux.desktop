@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=llk_linux
+Exec=llk_linux
+GenericName=LianLianKan Game
+GenericName[zh_CN]=连连看游戏
+Comment=Gtk based LianLianKan Game.
+Comment[zh_CN]=基于Gtk的连连看游戏
+MimeTypes=
+Icon=llk_linux.png
+Categories=GTK;Game;
+Terminal=false

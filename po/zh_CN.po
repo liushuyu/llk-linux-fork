@@ -1,0 +1,662 @@
+# translation of zh_CN.po to llk_linux
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# alpher <alpher_zmx@yahoo.com.cn>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: zh_CN\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-01-24 23:39+0800\n"
+"PO-Revision-Date: 2005-10-01 12:27+0800\n"
+"Last-Translator: alpher <alpher_zmx@yahoo.com.cn>\n"
+"Language-Team: llk_linux <zh@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.10.2\n"
+
+#. Game
+#. Single
+#: src/main.c:41 src/main.c:63 src/main.c:79
+msgid "_Easy"
+msgstr "简单(_E)"
+
+#: src/main.c:45 src/main.c:66 src/main.c:82
+msgid "_Normal"
+msgstr "一般(_N)"
+
+#: src/main.c:49 src/main.c:69 src/main.c:85
+msgid "_Hard"
+msgstr "困难(_H)"
+
+#: src/main.c:55
+msgid "_Resume"
+msgstr "继续上次游戏(_R)"
+
+#: src/main.c:59
+msgid "_Single"
+msgstr "单人游戏(_S)"
+
+#: src/main.c:72
+msgid "_Two"
+msgstr "双人对战(_T)"
+
+#: src/main.c:88
+msgid "_Server"
+msgstr "服务器端(_S)"
+
+#: src/main.c:91
+msgid "_Client"
+msgstr "客户端(_C)"
+
+#: src/main.c:94
+msgid "_Network"
+msgstr "网络对战(_N)"
+
+#: src/main.c:101
+msgid "_Giveup"
+msgstr "放弃(_G)"
+
+#: src/main.c:110
+msgid "_Game"
+msgstr "游戏(_G)"
+
+#: src/main.c:116
+msgid "_Hint"
+msgstr "提示(_H)"
+
+#: src/main.c:120
+msgid "_Shuffle"
+msgstr "重新洗牌(_S)"
+
+#: src/main.c:124
+#, fuzzy
+msgid "_Pause/Proceed"
+msgstr "暂停(_P)"
+
+#: src/main.c:130
+msgid "H_ide"
+msgstr "隐藏(_i)"
+
+#.
+#. Hide menuitem's activeate event is connected in the main function, not here.
+#. g_signal_connect(G_OBJECT(menuitem),"activate",G_CALLBACK(ui_game_giveup),(gpointer)0);
+#.
+#: src/main.c:137
+msgid "_Theme Edit Tools"
+msgstr "主题编辑工具(_T)"
+
+#: src/main.c:140
+msgid "_Functions"
+msgstr "功能(_F)"
+
+#: src/main.c:146
+msgid "_Themes"
+msgstr "主题(_T)"
+
+#: src/main.c:149
+msgid "_Music"
+msgstr "背景音乐(_M)"
+
+#: src/main.c:152
+msgid "_Sound"
+msgstr "声效(_S)"
+
+#: src/main.c:155
+msgid "_Background Picture"
+msgstr "背景图片(_B)"
+
+#: src/main.c:160
+msgid "_Cheat"
+msgstr "作弊(_C)"
+
+#: src/main.c:164
+msgid "_Setting"
+msgstr "设置(_S)"
+
+#: src/main.c:170
+msgid "_View Scores"
+msgstr "查看英雄榜(_V)"
+
+#: src/main.c:174
+msgid "_Internet Scores"
+msgstr "网络排行(_I)"
+
+#: src/main.c:178
+msgid "S_core"
+msgstr "分数(_c)"
+
+#: src/main.c:183
+msgid "_Rules"
+msgstr "游戏规则(_R)"
+
+#: src/main.c:186
+msgid "_Author"
+msgstr "关于作者(_A)"
+
+#. name, stock id
+#: src/main.c:189 src/main.c:2177
+msgid "_About"
+msgstr "关于(_A)"
+
+#: src/main.c:436 src/main.c:473 src/main.c:494 src/main.c:516 src/main.c:539
+#: src/main.c:809 src/main.c:882 src/main.c:939 src/main.c:953 src/main.c:1186
+msgid "Create pthread error!\n"
+msgstr ""
+
+#: src/main.c:637
+msgid "You should pass difficulty Easy before you play Normal."
+msgstr "先玩过了\"简单\"再来玩\"一般\"吧."
+
+#: src/main.c:640
+msgid "You should pass difficulty Normal before you play Hard."
+msgstr "先玩过了\"一般\"再来玩\"困难\"吧"
+
+#: src/main.c:678
+msgid "Read saved game data error,Maybe you have not saved a game before.\n"
+msgstr "读取游戏进度出错.或许您以前没有保存过游戏.\n"
+
+#: src/main.c:691
+msgid "Call algorithm_game_begin function error.\n"
+msgstr "调用algorithm_game_begin函数出错.\n"
+
+#: src/main.c:820 src/main.c:1630 src/main.c:1754
+#, c-format
+msgid "Failed to extract file:%s.\n"
+msgstr "解包文件%s时出错.\n"
+
+#: src/main.c:827 src/main.c:1637 src/main.c:1761
+msgid "randomback=NULL,Error occored.\n"
+msgstr "randomback为空,发生错误了.\n"
+
+#: src/main.c:864 src/main.c:1108
+#, c-format
+msgid "Life:%d"
+msgstr "生命:%d"
+
+#: src/main.c:905
+msgid ""
+"Congratulations,you have success the Easy difficulty,you may play Normal now!"
+msgstr "恭喜恭喜,你已经通过\"简单\"难度,玩玩\"一般\"吧!"
+
+#: src/main.c:908
+msgid ""
+"Congratulations,you have success the Normal difficulty,you may play Hard now!"
+msgstr "好利害哦,\"一般\"都过了,挑战\"困难\"吧!"
+
+#: src/main.c:911
+msgid ""
+"Congratulations,you have success all the difficulties,I admire you so much..."
+msgstr "通关了?!什么也不说了，一个字………………牛X"
+
+#: src/main.c:917
+msgid "Ini file save error!\n"
+msgstr "Ini文件保存出错!\n"
+
+#. popup dialog window
+#: src/main.c:924
+msgid "Success and failure are nothing,just try again!"
+msgstr "胜败乃兵家常事,大侠重新来过吧!"
+
+#: src/main.c:1050
+msgid "Diff:Easy"
+msgstr "难度:简单"
+
+#: src/main.c:1053
+msgid "Diff:Normal"
+msgstr "难度:一般"
+
+#: src/main.c:1056
+msgid "Diff:Hard"
+msgstr "难度:困难"
+
+#: src/main.c:1061
+#, c-format
+msgid "Lev:%d"
+msgstr "等级:%d"
+
+#. no change
+#: src/main.c:1067
+msgid "No Change"
+msgstr "无变化"
+
+#. move down
+#: src/main.c:1070
+msgid "Move Down"
+msgstr "向下"
+
+#. move left
+#: src/main.c:1073
+msgid "Move Left"
+msgstr "向左"
+
+#. up down separate
+#: src/main.c:1076
+msgid "Up Down Separate"
+msgstr "上下分离"
+
+#. left right separate
+#: src/main.c:1079
+msgid "Left Right Separate"
+msgstr "左右分离"
+
+#. up down converge
+#: src/main.c:1082
+msgid "Up Down Converge"
+msgstr "上下集中"
+
+#. left right converge
+#: src/main.c:1085
+msgid "Left Right Converge"
+msgstr "左右集中"
+
+#. up leftward,down rightward
+#: src/main.c:1088
+msgid "Up left,Down right"
+msgstr "上左下右"
+
+#. left downward,right upward
+#: src/main.c:1091
+msgid "Left down,Right up"
+msgstr "左下右上"
+
+#. disperse from center
+#: src/main.c:1094
+msgid "DisperseFromCenter"
+msgstr "向外扩散"
+
+#. centralize
+#: src/main.c:1097
+msgid "Centralize"
+msgstr "向内集中"
+
+#: src/main.c:1111 src/main.c:1151
+#, c-format
+msgid "Hint:%d"
+msgstr "提示:%d"
+
+#: src/main.c:1118 src/main.c:2258
+msgid "Diff:"
+msgstr "难度:"
+
+#: src/main.c:1119 src/main.c:2263
+msgid "Lev:"
+msgstr "等级:"
+
+#: src/main.c:1120 src/main.c:2278
+msgid "Change Type:"
+msgstr "变化类型:"
+
+#: src/main.c:1122 src/main.c:2268
+msgid "Life:"
+msgstr "生命:"
+
+#: src/main.c:1123 src/main.c:2273
+msgid "Hint:"
+msgstr "提示:"
+
+#: src/main.c:1487
+msgid "User Setting Save Error,fail to creat directory:$HOME/.llk_linux\n"
+msgstr "创建目录$HOME/.llk_linux失败,无法保存配置文件.\n"
+
+#: src/main.c:1499
+msgid "Unable to read UserSettings.ini"
+msgstr "无法读取UserSetting.ini"
+
+#: src/main.c:1521 src/main.c:1589
+msgid "Failed to read \"[UISETTING]/themename\" key."
+msgstr "读取键值\"[UISETTING]/themename\"出错."
+
+#: src/main.c:1569
+msgid "Unable to save $HOME/.llk_linux/UserSettings.ini"
+msgstr "无法保存$HOME/.llk_linux/UserSettings.ini"
+
+#: src/main.c:1582
+#, c-format
+msgid "Failed to read \"[THEMEFILE]/%s\""
+msgstr "读取\"[THEMEFILE]/%s\"失败"
+
+#: src/main.c:1595
+#, c-format
+msgid "The package file:LLK_DATA_PATH/pak/%s does not exists."
+msgstr "PAK包LLK_DATA_PATH/pak/%s不存在."
+
+#: src/main.c:1602
+msgid "LoadPAKHFT error."
+msgstr "读取PAK文件表出错."
+
+#: src/main.c:1614
+msgid "Failed to extract necessary jpg/png files."
+msgstr "解包必须的jpg/png文件失败."
+
+#: src/main.c:1653
+msgid "Convert jpg/png files into ui_pixbuf error."
+msgstr "将jpg/png装入ui_pixbuf出错."
+
+#: src/main.c:1700
+#, c-format
+msgid "Failed to read \"[THEMEFILE]/%s\"\n"
+msgstr "读取\"[THEMEFILE]/%s\"失败\n"
+
+#: src/main.c:1709
+#, c-format
+msgid "The package file:LLK_DATA_PATH/%s does not exists.\n"
+msgstr "PAK包LLK_DATA_PATH/%s不存在\n"
+
+#: src/main.c:1716
+msgid "LoadPAKHFT error.\n"
+msgstr "读取PAK文件表出错.\n"
+
+#: src/main.c:1729
+msgid "Failed to extract necessary jpg/png files.\n"
+msgstr "解包必须的jpg/png文件失败.\n"
+
+#: src/main.c:1777
+msgid "Convert jpg/png files into ui_pixbuf error.\n"
+msgstr "将jpg/png装入ui_pixbuf出错.\n"
+
+#: src/main.c:1825 src/main.c:1850
+msgid "Open save.dat file error.\n"
+msgstr "打开save.dat文件出错\n"
+
+#: src/main.c:1863
+msgid "Input your name and nick"
+msgstr "输入大名和雅号"
+
+#: src/main.c:1867
+msgid " Name "
+msgstr "大名"
+
+#: src/main.c:1877
+msgid " Nick "
+msgstr "雅号"
+
+#. Button area
+#: src/main.c:1886
+msgid "OK"
+msgstr "输好了"
+
+#: src/main.c:1888
+msgid "Cancel"
+msgstr "不输了"
+
+#: src/main.c:1953
+msgid "Open file error.\n"
+msgstr "打开文件出错.\n"
+
+#: src/main.c:2020
+#, c-format
+msgid "Easy"
+msgstr "简单"
+
+#: src/main.c:2022
+#, c-format
+msgid "Normal"
+msgstr "一般"
+
+#: src/main.c:2024
+#, c-format
+msgid "Hard"
+msgstr "困难"
+
+#: src/main.c:2026
+#, c-format
+msgid "Unknown"
+msgstr "未知"
+
+#: src/main.c:2048
+msgid "Open score.dat error.\n"
+msgstr "打开score.dat出错.\n"
+
+#: src/main.c:2064
+msgid "Top 10 Heros"
+msgstr "英雄榜"
+
+#: src/main.c:2070
+msgid "Position"
+msgstr "名次"
+
+#: src/main.c:2073
+msgid "Score"
+msgstr "分数"
+
+#: src/main.c:2076
+msgid "Name"
+msgstr "大名"
+
+#: src/main.c:2079
+msgid "Nick name"
+msgstr "雅号"
+
+#: src/main.c:2082
+msgid "Difficulty"
+msgstr "难度"
+
+#: src/main.c:2085
+msgid "Level"
+msgstr "等级"
+
+#: src/main.c:2088
+msgid "Data&Time"
+msgstr "时间"
+
+#. Create button
+#: src/main.c:2129
+msgid " Close "
+msgstr "关闭"
+
+#: src/main.c:2169
+msgid "_Help"
+msgstr ""
+
+#: src/main.c:2170
+msgid "Help"
+msgstr ""
+
+#. name, stock id
+#: src/main.c:2173
+#, fuzzy
+msgid "_Quit"
+msgstr "提示(_H)"
+
+#. label, accelerator
+#: src/main.c:2174
+msgid "Quit"
+msgstr ""
+
+#. label, accelerator
+#: src/main.c:2178
+#, fuzzy
+msgid "About"
+msgstr "关于(_A)"
+
+#: src/main.c:2203
+msgid "Lian Lian Kan "
+msgstr "连连看"
+
+#: src/main.c:2203
+msgid " by Alpher"
+msgstr "Alpher制作"
+
+#. If player quit game while playing, call save_game_data
+#: src/main.c:2336
+msgid "Save game data to file error.\n"
+msgstr "保存游戏进度出错.\n"
+
+#: src/llk_about.c:32
+msgid "About llk_linux Version"
+msgstr "关于连连看 V"
+
+#: src/llk_about.c:37
+msgid ""
+"llk_linux Designed by Alpher\n"
+"by Zhao Mingxian <alpher_zmx@yahoo.com.cn>\n"
+"Copyright (C) 2005 Zhao Mingxian\n"
+"\n"
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or  \n"
+"(at your option) any later version.                               \n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the \n"
+"GNU General Public License for more details.                  \n"
+"\n"
+"This Software is designed in C,with GTK+ 2.0 library.\n"
+"It's project websit is at:llk-linux.sourceforge.net\n"
+"and forum in China is at:www.linuxfans.org.\n"
+"\n"
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307  USA"
+msgstr ""
+"连连看 Alpher 制作\n"
+"赵明现<alpher_zmx@yahoo.com.cn>毕业于北京大学空间物理专业99级\n"
+"版权所有 (C) 2005 赵明现\n"
+"\n"
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or  \n"
+"(at your option) any later version.                               \n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the \n"
+"GNU General Public License for more details.                  \n"
+"\n"
+"本软件使用C语言,基于GTK+2.0开发.\n"
+"项目主页在:llk-linux.sourceforge.net\n"
+"国内论坛在:www.linuxfans.org.连连看-linux版面\n"
+"\n"
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307  USA"
+
+#: src/llk_about.c:63 src/llk_about.c:110
+msgid "Close"
+msgstr "关闭"
+
+#: src/llk_about.c:76
+msgid "llk_linux game rules"
+msgstr "连连看游戏规则"
+
+#: src/llk_about.c:82
+msgid "Extract HowToPlay.jpg failed."
+msgstr "解包HowToPlay.jpg时出错."
+
+#: src/llk_about.c:92
+msgid "Read HowToPlay.jpg into pixbuf error."
+msgstr "将HowToPlay.jpg读为pixbuf时出错."
+
+#. Write warring message
+#: src/llk_inifile.c:156
+#, c-format
+msgid ""
+"# DO NOT Modify this file by hand unless you exactly know what you are "
+"doing.\n"
+msgstr "# 如果您不知道本文件各项的具体含义,请不要轻易修改本文件.\n"
+
+#: src/pak/create_pak.c:33
+msgid "PAK File Compiler"
+msgstr "PAK打包/解包器"
+
+#: src/pak/create_pak.c:35
+msgid "Compilation / Output"
+msgstr "打包"
+
+#: src/pak/create_pak.c:43
+msgid " Input Directory "
+msgstr "输入目录"
+
+#: src/pak/create_pak.c:51
+msgid " Output PAK Name "
+msgstr "输出PAK文件名"
+
+#: src/pak/create_pak.c:55
+msgid "Extract PAK File"
+msgstr "解包"
+
+#: src/pak/create_pak.c:63
+msgid " Choose PAK File "
+msgstr "选择PAK文件"
+
+#: src/pak/create_pak.c:71
+msgid " Output Directory "
+msgstr "输出目录"
+
+#. Button area
+#: src/pak/create_pak.c:77
+msgid " Compilation "
+msgstr "打包"
+
+#: src/pak/create_pak.c:80
+msgid " Extract All "
+msgstr "解包"
+
+#: src/pak/create_pak.c:83
+msgid " Cancel "
+msgstr "取消"
+
+#: src/pak/create_pak.c:96
+msgid "Select Folder To Compile"
+msgstr "选择需要打包的目录"
+
+#: src/pak/create_pak.c:104
+msgid "Select Output PAK File Name"
+msgstr "输入PAK包文件名"
+
+#: src/pak/create_pak.c:112
+msgid "Select A PAK File To Extract"
+msgstr "选择需要解包的PAK文件"
+
+#: src/pak/create_pak.c:120
+msgid "Select Folder Where To Extract The PAK File"
+msgstr "选择解包到何处"
+
+#: src/pak/create_pak.c:169
+msgid "Compile Fold to PAK Successfully."
+msgstr "打包顺利完成."
+
+#: src/pak/create_pak.c:179
+msgid ""
+"Compile Fold to PAK Failed,Check the folder/file name if you have right to "
+"access them"
+msgstr "打包出错,检查是否有权访问指定的文件/目录."
+
+#: src/pak/create_pak.c:194
+msgid "Extract PAK Successfully."
+msgstr "解包顺利完成."
+
+#: src/pak/create_pak.c:204
+msgid ""
+"Extract PAK File Failed,Check if you have right to access the file/folder."
+msgstr "解包出错,检查是否有权访问指定的文件/目录."
+
+#. Create the header and file table
+#: src/pak/pak.c:167
+msgid "GenerateHFT() failed."
+msgstr "GenerateHFT()调用失败."
+
+#. Work out the offsets
+#: src/pak/pak.c:170
+msgid "WorkOutOffsets() failed."
+msgstr "WorkOutOffsets()调用失败"
+
+#: src/eggtrayicon.c:127
+msgid "Orientation"
+msgstr ""
+
+#: src/eggtrayicon.c:128
+msgid "The orientation of the tray."
+msgstr ""
+
+#: src/tray.c:81
+msgid ""
+"llk_linux\n"
+"Lian Lian Kan,Version 2.2.\n"
+msgstr ""
+
+#~ msgid "mainback=NULL,Error occored.\n"
+#~ msgstr "mainback为空,出错了.\n"
