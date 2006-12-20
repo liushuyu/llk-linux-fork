@@ -1,0 +1,17 @@
+# List of source files containing translatable strings.
+
+## Created by Anjuta - will be overwritten
+## If you don't want it to overwrite it,
+## 	Please disable it in the Anjuta project configuration
+
+# Source files
+src/main.c
+src/llk_about.c
+src/llk_algorithm.c
+src/llk_inifile.c
+src/pak/create_pak.c
+src/pak/pak.c
+src/eggtrayicon.c
+src/tray.c
+
+
