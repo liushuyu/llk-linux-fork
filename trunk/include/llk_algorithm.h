@@ -32,11 +32,6 @@
 #define ALGORITHM_GAME_RUN   2
 #define ALGORITHM_GAME_PAUSE 3
 
-struct AlgorithmPoint{
-	gint x;
-	gint y;
-};
-
 struct AlgorithmGame{
 	gint difficulty;
 	gint level;
@@ -51,26 +46,26 @@ struct AlgorithmGame{
 struct AlgorithmGame algorithm_game;
 gboolean algorithm_game_init(void);
 gboolean algorithm_game_begin(gpointer data);
-gboolean algorithm_can_direct_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2); 
-gboolean algorithm_can_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2, struct AlgorithmPoint *pp3, struct AlgorithmPoint *pp4); 
-void     algorithm_link(struct AlgorithmPoint p1,struct AlgorithmPoint p2);
-GSList * algorithm_get_points(struct AlgorithmPoint p);
+gboolean algorithm_can_direct_link(GdkPoint p1, GdkPoint p2); 
+gboolean algorithm_can_link(GdkPoint p1, GdkPoint p2, GdkPoint *pp3, GdkPoint *pp4); 
+void     algorithm_link(GdkPoint p1,GdkPoint p2);
+GSList * algorithm_get_points(GdkPoint p);
 void     algorithm_free_with_data(GSList *list);
 gint     algorithm_game_no_solution(void);
 void     algorithm_game_shuffle(void);
-void     algorithm_game_change(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
+void     algorithm_game_change(GdkPoint p1, GdkPoint p2);
 gboolean algorithm_game_net_level(void);
 void     algorithm_init_data(void);
-void     algorithm_data_change_0(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_1(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_2(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_3(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_4(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_5(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_6(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_7(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_8(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_9(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
-void     algorithm_data_change_10(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
+void     algorithm_data_change_0(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_1(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_2(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_3(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_4(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_5(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_6(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_7(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_8(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_9(GdkPoint p1, GdkPoint p2);
+void     algorithm_data_change_10(GdkPoint p1, GdkPoint p2);
 
 #endif
