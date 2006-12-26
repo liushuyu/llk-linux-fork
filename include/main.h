@@ -67,7 +67,7 @@ struct UiTop{
 };
 struct UiTop ui_top;
 
-struct AlgorithmPoint ui_point1,ui_point2;
+GdkPoint ui_point1,ui_point2;
 GtkWidget *ui_drawingarea;  /*Pointer to the Drewing area*/
 static GdkPixmap *ui_double_pixmap = NULL;  /* Background pixmap of the Drawing srea */
 GtkCheckMenuItem *item_use_mycards;
@@ -92,19 +92,19 @@ void        ui_drawingarea_draw_bg(gint choice);
 void        ui_game_begin(GtkWidget *w,gpointer data);
 void        ui_game_giveup(GtkWidget *w,gpointer data);
 gboolean    ui_game_init(void);
-gboolean    ui_replace_image(struct AlgorithmPoint p1,struct AlgorithmPoint p2);
+gboolean    ui_replace_image(GdkPoint p1,GdkPoint p2);
 gboolean    ui_redraw_images(void);
 void        ui_game_next_level(void);
 void        ui_game_shuffle(GtkWidget *w,gpointer data);
 void        ui_game_cheat(GtkWidget *w,gpointer data);
-void        ui_game_change(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
+void        ui_game_change(GdkPoint p1, GdkPoint p2);
 void        ui_game_over(gboolean success);
 void        ui_game_pause(void);
 gboolean    progress_timeout(gpointer value);
 void        ui_refresh_top(void);
 gint        ui_get_time_limited(void);
 void        ui_game_hint( GtkWidget *w,gpointer   data );
-void        ui_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2);
+void        ui_link(GdkPoint p1, GdkPoint p2);
 void		ui_hide_window (GtkWidget *w, gpointer data);
 /*Function for Save and Read User Settings*/
 gboolean ui_load_ini_pak(gchar **message);

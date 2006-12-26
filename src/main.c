@@ -259,7 +259,7 @@ ui_setting_on_show (GtkWidget *w, gpointer data)
   replace with new image at (i,j)
 */
 gboolean 
-ui_replace_image(struct AlgorithmPoint p1,struct AlgorithmPoint p2)
+ui_replace_image(GdkPoint p1,GdkPoint p2)
 {
   GdkRectangle update_rect;
 
@@ -969,7 +969,7 @@ ui_game_over(gboolean success)
   the two cards which can link have already been deleted,so only change the position of these cards left.
 */
 void 
-ui_game_change(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+ui_game_change(GdkPoint p1, GdkPoint p2)
 {
   algorithm_game_change(p1,p2);
   ui_redraw_images();
@@ -1166,7 +1166,7 @@ ui_game_hint( GtkWidget *w,gpointer   data )
 	        if(k == i && l == j)continue;  /*exclude the situation of link to itself*/
 	        if(algorithm_game.data[k][l] > 0)
 	        {
-	          struct AlgorithmPoint p1,p2;
+	          GdkPoint p1,p2;
 	          p1.x = i; p1.y = j;
 	          p2.x = k; p2.y = l;
 	          if(algorithm_can_link(p1,p2,NULL,NULL))
@@ -1201,7 +1201,7 @@ ui_game_hint( GtkWidget *w,gpointer   data )
   and add these points in a single list.
 */
 void 
-ui_add_line(struct AlgorithmPoint p1,struct AlgorithmPoint p2, GSList **link_line)
+ui_add_line(GdkPoint p1,GdkPoint p2, GSList **link_line)
 {
 	gint i;
 	struct LinkPoint *tmp_point=NULL;
@@ -1389,7 +1389,7 @@ ui_draw_line(GSList *r_line)
 	algorithm_free_with_data (link_line);
 }
 void 
-ui_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+ui_link(GdkPoint p1, GdkPoint p2)
 {
 	GSList *link_line = NULL;
 	
@@ -1399,7 +1399,7 @@ ui_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 	}
 	else
 	{
-		struct AlgorithmPoint p3,p4;
+		GdkPoint p3,p4;
 		algorithm_can_link(p1,p2,&p3,&p4);
 		ui_add_line(p1,p3,&link_line);
 		if(p3.x != p4.x || p3.y != p4.y)ui_add_line(p3,p4,&link_line);

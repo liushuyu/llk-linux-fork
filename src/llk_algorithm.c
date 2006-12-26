@@ -156,7 +156,7 @@ algorithm_init_data(void)
   BE CARE:this function do not warrant p1 and p2 have the same type of image.
 */
 gboolean 
-algorithm_can_direct_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_can_direct_link(GdkPoint p1, GdkPoint p2)
 {
 /*  if(p1.x > 0 && p1.x < algorithm_game.row && p1.y > 0 && p1.y < algorithm_game.col
     && p2.x > 0 && p2.x < algorithm_game.row && p2.y > 0 && p2.y < algorithm_game.col)
@@ -225,7 +225,7 @@ algorithm_can_direct_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
   judge if the p1's adjacent empty point can direct link to p2's
 */
 gboolean 
-algorithm_can_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2, struct AlgorithmPoint *pp3, struct AlgorithmPoint *pp4)
+algorithm_can_link(GdkPoint p1, GdkPoint p2, GdkPoint *pp3, GdkPoint *pp4)
 {
   if(algorithm_game.data[p1.x][p1.y] != algorithm_game.data[p2.x][p2.y])
   {
@@ -244,12 +244,12 @@ algorithm_can_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2, struct Al
 /*    g_print("length_p1: %d, length_p2: %d \n",g_slist_length(p1_list),g_slist_length(p2_list));
     for(i=0;i<g_slist_length(p1_list);i++)
     {
-      g_print("point:%d, %d",((struct AlgorithmPoint*)g_slist_nth_data(p1_list,i))->x,((struct AlgorithmPoint*)g_slist_nth_data(p1_list,i))->y);
+      g_print("point:%d, %d",((GdkPoint*)g_slist_nth_data(p1_list,i))->x,((GdkPoint*)g_slist_nth_data(p1_list,i))->y);
     }
     g_print("\n");
     for(j=0;j<g_slist_length(p2_list);j++)
     {
-      g_print("point:%d, %d",((struct AlgorithmPoint*)g_slist_nth_data(p2_list,j))->x,((struct AlgorithmPoint*)g_slist_nth_data(p2_list,j))->y);
+      g_print("point:%d, %d",((GdkPoint*)g_slist_nth_data(p2_list,j))->x,((GdkPoint*)g_slist_nth_data(p2_list,j))->y);
     }
     g_print("\n");
 */
@@ -262,14 +262,14 @@ algorithm_can_link(struct AlgorithmPoint p1, struct AlgorithmPoint p2, struct Al
       {
         for(j=0;j<g_slist_length(p2_list);j++)
 	{
-	  if(algorithm_can_direct_link(*(struct AlgorithmPoint*)g_slist_nth_data(p1_list,i) ,*(struct AlgorithmPoint*)g_slist_nth_data(p2_list,j)))
+	  if(algorithm_can_direct_link(*(GdkPoint*)g_slist_nth_data(p1_list,i) ,*(GdkPoint*)g_slist_nth_data(p2_list,j)))
 	  {   
 	    if(pp3 != NULL)  /* && pp4 != NULL*/
 	    {
-	      pp3->x = ((struct AlgorithmPoint*)g_slist_nth_data(p1_list,i))->x; 
-	      pp3->y = ((struct AlgorithmPoint*)g_slist_nth_data(p1_list,i))->y;
-	      pp4->x = ((struct AlgorithmPoint*)g_slist_nth_data(p2_list,j))->x;
-	      pp4->y = ((struct AlgorithmPoint*)g_slist_nth_data(p2_list,j))->y;
+	      pp3->x = ((GdkPoint*)g_slist_nth_data(p1_list,i))->x; 
+	      pp3->y = ((GdkPoint*)g_slist_nth_data(p1_list,i))->y;
+	      pp4->x = ((GdkPoint*)g_slist_nth_data(p2_list,j))->x;
+	      pp4->y = ((GdkPoint*)g_slist_nth_data(p2_list,j))->y;
 	    }
 	    algorithm_free_with_data(p1_list);
 	    algorithm_free_with_data(p2_list);  
@@ -305,9 +305,9 @@ algorithm_free_with_data(GSList *list)
   find up,down,left and right of point p,get the adjacent empty points,form a single list,and return it.
 */
 GSList * 
-algorithm_get_points(struct AlgorithmPoint p)
+algorithm_get_points(GdkPoint p)
 {
-  struct AlgorithmPoint *tmp_point=NULL;
+  GdkPoint *tmp_point=NULL;
   GSList *p_list=NULL;
   gint i;
   /*g_print("Get Points,x1: %d, y1: %d \n",p.x,p.y);*/
@@ -320,7 +320,7 @@ algorithm_get_points(struct AlgorithmPoint p)
     }
     else
     {
-      tmp_point = (struct AlgorithmPoint *)g_malloc(sizeof(struct AlgorithmPoint));
+      tmp_point = (GdkPoint *)g_malloc(sizeof(GdkPoint));
       tmp_point->x = p.x;
       tmp_point->y = i;
       p_list = g_slist_prepend(p_list,tmp_point);
@@ -335,7 +335,7 @@ algorithm_get_points(struct AlgorithmPoint p)
     }
     else
     {
-      tmp_point = (struct AlgorithmPoint *)g_malloc(sizeof(struct AlgorithmPoint));
+      tmp_point = (GdkPoint *)g_malloc(sizeof(GdkPoint));
       tmp_point->x = p.x;
       tmp_point->y = i;
       p_list = g_slist_prepend(p_list,tmp_point);
@@ -350,7 +350,7 @@ algorithm_get_points(struct AlgorithmPoint p)
     }
     else
     {
-      tmp_point = (struct AlgorithmPoint *)g_malloc(sizeof(struct AlgorithmPoint));
+      tmp_point = (GdkPoint *)g_malloc(sizeof(GdkPoint));
       tmp_point->x = i;
       tmp_point->y = p.y;
       p_list = g_slist_prepend(p_list,tmp_point);
@@ -365,7 +365,7 @@ algorithm_get_points(struct AlgorithmPoint p)
     }
     else
     {
-      tmp_point = (struct AlgorithmPoint *)g_malloc(sizeof(struct AlgorithmPoint));
+      tmp_point = (GdkPoint *)g_malloc(sizeof(GdkPoint));
       tmp_point->x = i;
       tmp_point->y = p.y;
       p_list = g_slist_prepend(p_list,tmp_point);
@@ -381,7 +381,7 @@ algorithm_get_points(struct AlgorithmPoint p)
   empty the data of the two points.
 */
 void 
-algorithm_link(struct AlgorithmPoint p1,struct AlgorithmPoint p2)
+algorithm_link(GdkPoint p1,GdkPoint p2)
 {
   algorithm_game.data[p1.x][p1.y] = 0;
   algorithm_game.data[p2.x][p2.y] = 0;
@@ -417,7 +417,7 @@ algorithm_game_no_solution(void)
 	    if(k == i && l == j)continue;  /*exclude the situation of link to itself*/
 	    if(algorithm_game.data[k][l] > 0)
 	    {
-	      struct AlgorithmPoint p1,p2;
+	      GdkPoint p1,p2;
 	      p1.x = i; p1.y = j;
 	      p2.x = k; p2.y = l;
 	      if(algorithm_can_link(p1,p2,NULL,NULL))
@@ -494,7 +494,7 @@ algorithm_game_shuffle(void)
 }
 
 void     
-algorithm_game_change(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_game_change(GdkPoint p1, GdkPoint p2)
 {
   switch(algorithm_game.level)
   {
@@ -557,13 +557,13 @@ algorithm_game_net_level(void)
 }
 /*No Change, do nothing*/
 void     
-algorithm_data_change_0(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_0(GdkPoint p1, GdkPoint p2)
 {
   /*do nothing*/
 }
 /*Move Down*/
 void     
-algorithm_data_change_1(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_1(GdkPoint p1, GdkPoint p2)
 {
   gint i;
   for(i=p1.x;i>0;i--)
@@ -581,7 +581,7 @@ algorithm_data_change_1(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 }
 /*Move Left*/
 void     
-algorithm_data_change_2(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_2(GdkPoint p1, GdkPoint p2)
 { /*BE CARE: the last column do not in the for loop.*/
   gint j;
   for(j=p1.y;j < algorithm_game.col-1; j++)
@@ -599,7 +599,7 @@ algorithm_data_change_2(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 }
 /*Up and Down Separate*/
 void     
-algorithm_data_change_3(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_3(GdkPoint p1, GdkPoint p2)
 {
   gint i;
   gint tmp_start,tmp_end;
@@ -653,7 +653,7 @@ algorithm_data_change_3(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 }
 /*Left and Right Separate*/
 void     
-algorithm_data_change_4(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_4(GdkPoint p1, GdkPoint p2)
 {
   gint j;
   gint tmp_start,tmp_end;
@@ -707,7 +707,7 @@ algorithm_data_change_4(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 }
 /*Up and Down Converge*/
 void     
-algorithm_data_change_5(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_5(GdkPoint p1, GdkPoint p2)
 {
   gint i;
   gint tmp_start,tmp_end;
@@ -773,7 +773,7 @@ algorithm_data_change_5(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 }
 /*Left and Right Converge*/
 void     
-algorithm_data_change_6(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_6(GdkPoint p1, GdkPoint p2)
 {
   gint j;
   gint tmp_start,tmp_end;
@@ -839,7 +839,7 @@ algorithm_data_change_6(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 }
 /*Up leftward,Down rightward*/
 void     
-algorithm_data_change_7(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_7(GdkPoint p1, GdkPoint p2)
 {
   gint j;
   if(p1.x < algorithm_game.row/2) /*leftward*/
@@ -880,7 +880,7 @@ algorithm_data_change_7(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
 }
 /*Left downward,Right upward*/
 void     
-algorithm_data_change_8(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_8(GdkPoint p1, GdkPoint p2)
 {
   gint i;
   if(p1.y < algorithm_game.col/2) /*downward*/
@@ -924,9 +924,9 @@ algorithm_data_change_8(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
   first,left and right seperate,and then up and down seperate.
 */
 void     
-algorithm_data_change_9(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_9(GdkPoint p1, GdkPoint p2)
 {
-  struct AlgorithmPoint p3,p4;
+  GdkPoint p3,p4;
   gint sign;
   algorithm_data_change_4( p1, p2 );  /*1.left and right seperate*/
   /*find p1,p2 's position after 'left and right seperate',then do 'up and down seperate' on p1,p2 's new position*/
@@ -966,9 +966,9 @@ algorithm_data_change_9(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
   first do 'Left Right Converge' and then 'Up Down Converge'
 */
 void     
-algorithm_data_change_10(struct AlgorithmPoint p1, struct AlgorithmPoint p2)
+algorithm_data_change_10(GdkPoint p1, GdkPoint p2)
 {
-  struct AlgorithmPoint p3,p4;
+  GdkPoint p3,p4;
   gint sign;
   algorithm_data_change_6( p1, p2 );  /*first do 'Left Right Converge'*/
   /*find the new position of p1,p2 after 'Left Right Converge',then do 'Up Down Converge' on new position*/
