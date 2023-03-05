@@ -8,10 +8,7 @@ INCLUDES = \
 	$(PACKAGE_CFLAGS)\
 	 -I../ -I../include
 
-AM_CFLAGS =\
-	`pkg-config --cflags --libs gtk+-2.0`\
-	 -Wall\
-	 -g
+AM_CFLAGS = -Wall -g
 
 bin_PROGRAMS = llk_linux
 
