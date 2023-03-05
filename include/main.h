@@ -69,7 +69,6 @@ struct UiTop ui_top;
 
 GdkPoint ui_point1,ui_point2;
 GtkWidget *ui_drawingarea;  /*Pointer to the Drewing area*/
-static GdkPixmap *ui_double_pixmap = NULL;  /* Background pixmap of the Drawing srea */
 GtkCheckMenuItem *item_use_mycards;
 struct UiMenuItem{
 	GtkMenuItem      *themes;
@@ -84,7 +83,6 @@ gint timer_handle;
 
 void get_main_menu( GtkWidget *window, GtkWidget **menubar);
 
-static void print_hello( GtkWidget *w,gpointer   data );  /*test function*/
 void        ui_about(GtkWidget *w,gpointer data){show_about();}
 void        ui_rule(GtkWidget *w,gpointer data){show_rule();}
 gboolean    ui_drawingarea_clicked(GtkWidget *fixed, GdkEventButton *event);

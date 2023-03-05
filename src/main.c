@@ -24,6 +24,9 @@
 #include <config.h>
 #include <main.h>
 
+static GdkPixmap *ui_double_pixmap = NULL;  /* Background pixmap of the Drawing srea */
+static void print_hello( GtkWidget *w,gpointer   data );  /*test function*/
+
 /*
   creat menus
 */
@@ -641,7 +644,7 @@ ui_game_begin(GtkWidget *w,gpointer data)
             break;
         }
         type = GTK_MESSAGE_WARNING;
-      dialog = gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,type,GTK_BUTTONS_OK,message);
+      dialog = gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,type,GTK_BUTTONS_OK,"%s", message);
       gtk_dialog_run(GTK_DIALOG(dialog));
       gtk_widget_destroy(dialog);
       g_free(message);
@@ -677,7 +680,7 @@ ui_game_begin(GtkWidget *w,gpointer data)
       gchar *message = NULL;
       message = g_strdup(_("Read saved game data error,Maybe you have not saved a game before.\n"));
       type = GTK_MESSAGE_WARNING;
-      dialog = gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,type,GTK_BUTTONS_OK,message);
+      dialog = gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,type,GTK_BUTTONS_OK,"%s", message);
       gtk_dialog_run(GTK_DIALOG(dialog));
       gtk_widget_destroy(dialog);
       g_free(message);
@@ -820,7 +823,7 @@ ui_game_next_level(void)
       if(!ExtractSingleFile(bgfilename)){g_print(_("Failed to extract file:%s.\n"),bgfilename);}
 	  g_free (bgfilename);
 	  bgfilename = g_strdup_printf ("/tmp/llk_back%d.jpg",ui_pixbuf.randomback_choice-1);
-      if(ui_pixbuf.randomback)gdk_pixbuf_unref(ui_pixbuf.randomback); /* Free old randomback pixbuf */
+      if(ui_pixbuf.randomback)g_object_unref(ui_pixbuf.randomback); /* Free old randomback pixbuf */
       ui_pixbuf.randomback = gdk_pixbuf_new_from_file(bgfilename,NULL);
       remove(bgfilename);
 	  g_free (bgfilename);
@@ -896,7 +899,7 @@ ui_game_over(gboolean success)
   GtkMessageType type;
   gchar *message = NULL;
   
-   if(success)
+  if(success)
   {
     /*popup dialog window*/
     switch(algorithm_game.difficulty)
@@ -955,7 +958,7 @@ ui_game_over(gboolean success)
 			}
 		}
 	}
-	dialog = gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,type,GTK_BUTTONS_OK,message);
+	dialog = gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,type,GTK_BUTTONS_OK,"%s", message);
   gtk_dialog_run(GTK_DIALOG(dialog));
   gtk_widget_destroy(dialog);
   g_free(message);
@@ -1633,7 +1636,7 @@ ui_load_ini_pak(gchar **message)
     if(!ExtractSingleFile(bgfilename)){g_print(_("Failed to extract file:%s.\n"),bgfilename);}
 	g_free (bgfilename);
     bgfilename = g_strdup_printf ("/tmp/llk_back%d.jpg",ui_pixbuf.randomback_choice-1);
-    if(ui_pixbuf.randomback)gdk_pixbuf_unref(ui_pixbuf.randomback); /* Free old randomback pixbuf */
+    if(ui_pixbuf.randomback)g_object_unref(ui_pixbuf.randomback); /* Free old randomback pixbuf */
     ui_pixbuf.randomback = gdk_pixbuf_new_from_file(bgfilename,NULL);
     remove(bgfilename);
 	g_free (bgfilename);
@@ -1734,13 +1737,13 @@ radio_item_on_clicked( GtkWidget *w, gpointer   data )
         }
         else
         {
-          gdk_pixbuf_unref(ui_pixbuf.cardimages);
-          gdk_pixbuf_unref(ui_pixbuf.cardbacks);
-          gdk_pixbuf_unref(ui_pixbuf.vertical);
-          gdk_pixbuf_unref(ui_pixbuf.horizon);
-          gdk_pixbuf_unref(ui_pixbuf.logo);
-          gdk_pixbuf_unref(ui_pixbuf.pause);
-          gdk_pixbuf_unref(ui_pixbuf.mainback);
+          g_object_unref(ui_pixbuf.cardimages);
+          g_object_unref(ui_pixbuf.cardbacks);
+          g_object_unref(ui_pixbuf.vertical);
+          g_object_unref(ui_pixbuf.horizon);
+          g_object_unref(ui_pixbuf.logo);
+          g_object_unref(ui_pixbuf.pause);
+          g_object_unref(ui_pixbuf.mainback);
           ui_pixbuf.cardimages = gdk_pixbuf_new_from_file("/tmp/llk_cardimages.png",NULL);
           ui_pixbuf.cardbacks  = gdk_pixbuf_new_from_file("/tmp/llk_cardbacks.png",NULL);
           ui_pixbuf.vertical   = gdk_pixbuf_new_from_file("/tmp/llk_vertical.png",NULL);
@@ -1757,7 +1760,7 @@ radio_item_on_clicked( GtkWidget *w, gpointer   data )
               if(!ExtractSingleFile(bgfilename)){g_print(_("Failed to extract file:%s.\n"),bgfilename);}
               g_free (bgfilename);
 			  bgfilename = g_strdup_printf ("/tmp/llk_back%d.jpg",ui_pixbuf.randomback_choice-1);
-              if(ui_pixbuf.randomback)gdk_pixbuf_unref(ui_pixbuf.randomback); /* Free old randomback pixbuf */
+              if(ui_pixbuf.randomback)g_object_unref(ui_pixbuf.randomback); /* Free old randomback pixbuf */
               ui_pixbuf.randomback = gdk_pixbuf_new_from_file(bgfilename,NULL);
               remove(bgfilename);
 			  g_free (bgfilename);
@@ -2323,7 +2326,7 @@ static const gchar *tray_popup_ui_info =
 	{
 		GtkWidget *dialog;
 		dialog = gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-				GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,message);
+				GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,"%s", message);
 		gtk_dialog_run(GTK_DIALOG(dialog));
 		g_free(message);
 		gtk_widget_destroy(dialog);
