@@ -21,20 +21,18 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
- 
-#include <llk_about.h>
+
 #include <config.h>
-void 
-show_about(void) {
+#include <llk_about.h>
+void show_about(void) {
   GtkWidget *dialog, *button, *label;
   gchar *title = NULL;
   dialog = gtk_dialog_new();
-  title = g_strdup_printf ("%s%s",_("About llk_linux Version"),VERSION);
+  title = g_strdup_printf("%s%s", _("About llk_linux Version"), VERSION);
   gtk_window_set_title(GTK_WINDOW(dialog), title);
-  g_free (title);
+  g_free(title);
   gtk_container_border_width(GTK_CONTAINER(dialog), 5);
-  label = gtk_label_new(
-_("llk_linux Designed by Alpher\n\
+  label = gtk_label_new(_("llk_linux Designed by Alpher\n\
 by Zhao Mingxian <alpher_zmx@yahoo.com.cn>\n\
 Copyright (C) 2005 Zhao Mingxian\n\
 \n\
@@ -54,62 +52,56 @@ and forum in China is at:www.linuxfans.org.\n\
 \n\
 You should have received a copy of the GNU General Public License\n\
 along with this program; if not, write to the Free Software\n\
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307  USA")
-);
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307  USA"));
 
   gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE, 0);
   gtk_widget_show(label);
 
-  button = gtk_dialog_add_button(GTK_DIALOG(dialog),_("Close"),GTK_RESPONSE_ACCEPT);
+  button = gtk_dialog_add_button(GTK_DIALOG(dialog), _("Close"),
+                                 GTK_RESPONSE_ACCEPT);
   gtk_widget_show(button);
   gtk_widget_grab_focus(button);
-  gtk_dialog_run (GTK_DIALOG (dialog));
-  gtk_widget_destroy (dialog);
+  gtk_dialog_run(GTK_DIALOG(dialog));
+  gtk_widget_destroy(dialog);
 }
 
-void 
-show_rule(void) {
+void show_rule(void) {
   GtkWidget *dialog, *button, *image, *label;
   static GdkPixbuf *rule_pixbuf = NULL;
 
   dialog = gtk_dialog_new();
   gtk_window_set_title(GTK_WINDOW(dialog), _("llk_linux game rules"));
   gtk_container_border_width(GTK_CONTAINER(dialog), 5);
-  if(rule_pixbuf == NULL)
-  {
-    if(!ExtractSingleFile("HowToPlay.jpg"))
-    {
+  if (rule_pixbuf == NULL) {
+    if (!ExtractSingleFile("HowToPlay.jpg")) {
       label = gtk_label_new(_("Extract HowToPlay.jpg failed."));
-      gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE, 0);
+      gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE,
+                         0);
       gtk_widget_show(label);
-    }
-    else
-    {
-      rule_pixbuf = gdk_pixbuf_new_from_file("/tmp/llk_HowToPlay.jpg",NULL);
+    } else {
+      rule_pixbuf = gdk_pixbuf_new_from_file("/tmp/llk_HowToPlay.jpg", NULL);
       remove("/tmp/llk_HowToPlay.jpg");
-      if(rule_pixbuf == NULL)
-      {
+      if (rule_pixbuf == NULL) {
         label = gtk_label_new(_("Read HowToPlay.jpg into pixbuf error."));
-        gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE,
+                           0);
         gtk_widget_show(label);
-      }
-      else
-      {
+      } else {
         image = gtk_image_new_from_pixbuf(rule_pixbuf);
-        gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), image, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), image, TRUE, TRUE,
+                           0);
         gtk_widget_show(image);
       }
     }
-  }
-  else
-  {
+  } else {
     image = gtk_image_new_from_pixbuf(rule_pixbuf);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), image, TRUE, TRUE, 0);
     gtk_widget_show(image);
   }
-  button = gtk_dialog_add_button(GTK_DIALOG(dialog),_("Close"),GTK_RESPONSE_ACCEPT);
+  button = gtk_dialog_add_button(GTK_DIALOG(dialog), _("Close"),
+                                 GTK_RESPONSE_ACCEPT);
   gtk_widget_show(button);
   gtk_widget_grab_focus(button);
-  gtk_dialog_run (GTK_DIALOG (dialog));
-  gtk_widget_destroy (dialog);
+  gtk_dialog_run(GTK_DIALOG(dialog));
+  gtk_widget_destroy(dialog);
 }
