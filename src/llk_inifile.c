@@ -311,10 +311,10 @@ ini_file_remove_key(IniFile *ini, gchar *section, gchar *key)
 		if(line)
 		{
 			ini->changed = TRUE;
+			sect->lines = g_list_remove(sect->lines,line);
 			g_free(line->key);
 			g_free(line->value);
 			g_free(line);
-			sect->lines = g_list_remove(sect->lines,line);
 		}
 	}
 	return TRUE;
@@ -340,9 +340,9 @@ ini_file_remove_section(IniFile *ini, gchar *section)
 			g_free(line);
 			line_list = g_list_next(line_list);
 		}
+		ini->sections = g_list_remove(ini->sections,sect);
 		g_list_free(sect->lines);
 		g_free(sect);
-		ini->sections = g_list_remove(ini->sections,sect);
 	}
 	return TRUE;
 }

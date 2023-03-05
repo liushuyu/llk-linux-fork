@@ -1055,6 +1055,9 @@ ui_refresh_top(void)
       case 2:
         message = g_strdup(_("Diff:Hard"));
 	break;
+      default:
+        message = g_strdup(_("Diff:Unknown"));
+      break;
     }
     gtk_label_set_text(GTK_LABEL(ui_top.label_difficulty),message);
 	g_free (message);
