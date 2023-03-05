@@ -24,6 +24,8 @@
  
 #include <create_pak.h>
 
+GtkWidget *pak_dialog,*pak_entry_compilation,*pak_entry_output,*pak_entry_input,*pak_entry_extract;
+
 void create_pak_dialog(void)
 {
   GtkWidget *frame_compilation,*frame_extract;

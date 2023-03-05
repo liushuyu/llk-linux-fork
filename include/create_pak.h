@@ -27,7 +27,7 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <pak.h>
-GtkWidget *pak_dialog,*pak_entry_compilation,*pak_entry_output,*pak_entry_input,*pak_entry_extract;
+extern GtkWidget *pak_dialog,*pak_entry_compilation,*pak_entry_output,*pak_entry_input,*pak_entry_extract;
 void create_pak_dialog(void);
 void on_browse(gpointer data);
 void on_ok_clicked(gpointer data);

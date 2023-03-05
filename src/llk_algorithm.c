@@ -24,6 +24,8 @@
 
 #include <llk_algorithm.h>
 
+struct AlgorithmGame algorithm_game;
+
 gboolean 
 algorithm_game_init(void)
 {

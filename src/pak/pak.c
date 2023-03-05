@@ -25,6 +25,11 @@
 
 #include <pak.h>
 
+gchar       m_szFolderPath[300];     /* Folder to compile in to PAK */
+gchar       m_szPakName[300];        /* Output PAK file path and name */
+struct sPakHeader  m_Header;                /* The header of the PAK file */
+struct sFileTableEntry_list* m_FileTable;
+
 gboolean GenerateHFT()
 {
   /* Declare local variables */

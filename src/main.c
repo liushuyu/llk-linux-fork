@@ -2329,9 +2329,9 @@ static const gchar *tray_popup_ui_info =
     /* Set winodw icon */
 	gtk_window_set_icon(GTK_WINDOW(window),ui_pixbuf.logo);
 	ui_game_init(); /*init,ready to game start*/
-	esd_fd = esd_open_sound(NULL);
+	esd_fd = 0; /*esd_open_sound(NULL);*/
 	gtk_main();  /*enter main message loop*/
-	if(esd_fd > 0)esd_close(esd_fd);
+	// if(esd_fd > 0)esd_close(esd_fd);
         /* If player quit game while playing, call save_game_data */
         if(algorithm_game.status != ALGORITHM_GAME_STOP && !ui_save_game_data()){g_print(_("Save game data to file error.\n"));}
 	return FALSE;

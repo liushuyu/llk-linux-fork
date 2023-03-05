@@ -35,7 +35,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include <time.h>
-#include <esd.h>
+// #include <esd.h>
 #include <locale.h>
 #include <gdk/gdkkeysyms.h>
 #include <pthread.h>
@@ -144,8 +144,8 @@ void ui_play(const gchar *name)
 {
   gchar *filename = NULL;
   filename = g_strdup_printf("%s/%s/%s",PACKAGE_DATA_DIR,PACKAGE,name);
-  if (esd_fd>=0)
-    esd_play_file(NULL,filename,0);
+  // if (esd_fd>=0)
+  //   esd_play_file(NULL,filename,0);
   g_free (filename);
 }
 

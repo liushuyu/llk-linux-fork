@@ -43,7 +43,7 @@ struct AlgorithmGame{
 	gint data[9][16]; /*0:no pic,1: pic1,*/
 };
 
-struct AlgorithmGame algorithm_game;
+extern struct AlgorithmGame algorithm_game;
 gboolean algorithm_game_init(void);
 gboolean algorithm_game_begin(gpointer data);
 gboolean algorithm_can_direct_link(GdkPoint p1, GdkPoint p2); 

@@ -66,10 +66,10 @@ struct sFileTableEntry_tmp
   guint32   dwFileSize;           /* The size of the file in bytes */
   guint32   dwOffset;             /* Offset of file in the PAK */
 };
-gchar       m_szFolderPath[300];     /* Folder to compile in to PAK */
-gchar       m_szPakName[300];        /* Output PAK file path and name */
-struct sPakHeader  m_Header;                /* The header of the PAK file */
-struct sFileTableEntry_list* m_FileTable; /* The master file table for the PAK,
+extern gchar       m_szFolderPath[300];     /* Folder to compile in to PAK */
+extern gchar       m_szPakName[300];        /* Output PAK file path and name */
+extern struct sPakHeader  m_Header;                /* The header of the PAK file */
+extern struct sFileTableEntry_list* m_FileTable; /* The master file table for the PAK,
          before creat or unpak,you should set m_FileTable to NULL */
 
 gboolean    GenerateHFT();                          /* Create a Header and File Table */
