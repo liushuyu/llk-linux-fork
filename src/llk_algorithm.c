@@ -399,10 +399,9 @@ gint algorithm_game_no_solution(void) {
   game situation that have solution,so this function may be called more than one
   time.
 */
-void algorithm_game_shuffle(void) {
+static void algorithm_game_shuffle_inner(size_t seed) {
   GSList *picture_list = NULL, *tmp_node;
   gint i, j;
-  time_t t;
   for (i = 0; i < algorithm_game.row; i++) {
     for (j = 0; j < algorithm_game.col; j++) {
       if (algorithm_game.data[i][j] > 0) {
@@ -411,7 +410,7 @@ void algorithm_game_shuffle(void) {
       }
     }
   }
-  srand((unsigned)time(&t));
+  srand(seed);
   for (i = 0; i < algorithm_game.row; i++) {
     for (j = 0; j < algorithm_game.col; j++) {
       if (algorithm_game.data[i][j] > 0) {
@@ -433,8 +432,15 @@ void algorithm_game_shuffle(void) {
       }
     }
   }
-  if (algorithm_game_no_solution() == 1)
-    algorithm_game_shuffle();
+}
+
+void algorithm_game_shuffle(void) {
+  time_t t = 0;
+  size_t base_seed = (unsigned)time(&t);
+  do {
+    algorithm_game_shuffle_inner(++base_seed);
+  }
+  while (algorithm_game_no_solution() == 1);
   /*recursion call of this function,untill get a game situation that have
    * solution.*/
 }
@@ -476,6 +482,7 @@ void algorithm_game_change(GdkPoint p1, GdkPoint p2) {
     break;
   default:
     /*assert not reach*/
+    __builtin_unreachable();
     break;
   }
 }
